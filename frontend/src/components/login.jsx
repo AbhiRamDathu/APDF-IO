@@ -50,9 +50,9 @@ const Login = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <div style={styles.logo}>🤖 ForecastAI Pro</div>
+        <div style={styles.logo}>🤖 AptStock Pro</div>
         <h1 style={styles.heading}>Welcome Back</h1>
-        <p style={styles.subtitle}>Login to access your forecasts</p>
+        <p style={styles.subtitle}>Login to access your Projections</p>
 
         {error && <div style={styles.error}>{error}</div>}
 
@@ -159,7 +159,7 @@ const styles = {
     width: '100%',
   },
   logo: {
-    fontSize: '24px',
+    fontSize: '28px',
     fontWeight: '700',
     textAlign: 'center',
     marginBottom: '8px',

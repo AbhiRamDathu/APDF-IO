@@ -1,5 +1,5 @@
 """
-Entry point for ForecastAI Pro Backend
+Entry point for AptStock Pro Backend
 Run: python run.py
 """
 
@@ -13,7 +13,7 @@ from app.main import app
 if __name__ == "__main__":
     import uvicorn
     print("\n" + "="*70)
-    print("🚀 Starting ForecastAI Pro API Server")
+    print("🚀 Starting AptStock Pro API Server")
     print("="*70)
     print("📍 Server: http://localhost:8001")
     print("📚 API Docs: http://localhost:8001/docs")
