@@ -87,6 +87,43 @@ def health_check():
         "database": db_status
     }
 
+@app.get("/health")
+def health_check():
+    """Public health check for monitoring services like UptimeRobot"""
+    try:
+        mongo_client.admin.command('ping')
+        db_status = "connected"
+    except Exception as e:
+        db_status = "disconnected"
+        logger.error(f"MongoDB health check failed: {e}")
+    
+    return {
+        "status": "healthy",
+        "service": "ForecastAI Pro",
+        "timestamp": datetime.utcnow().isoformat(),
+        "database": db_status
+    }
+
+# ✅ ADD THIS NEW ENDPOINT
+@app.get("/api/health")
+def api_health_check():
+    """Health check at /api/health for Render's default health check path"""
+    try:
+        mongo_client.admin.command('ping')
+        db_status = "connected"
+    except Exception as e:
+        db_status = "disconnected"
+        logger.error(f"MongoDB health check failed: {e}")
+    
+    return {
+        "status": "healthy",
+        "service": "ForecastAI Pro",
+        "timestamp": datetime.utcnow().isoformat(),
+        "database": db_status,
+        "path": "/api/health"
+    }
+
+
 @admin_router.get("/health")
 async def system_health():
     """
